@@ -1,3 +1,10 @@
-const add = (a: number, b: number) => a + b;
+import bot from "./bot/index.js";
 
-console.log(add(1, 4));
+const bootstrap = () => {
+  bot.start({
+    onStart: () =>
+      console.log(`https://t.me/${bot.botInfo.username} started...`)
+  });
+};
+
+bootstrap();
