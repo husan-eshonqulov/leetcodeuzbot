@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import IConfig from "../types/config";
+import IConfig from "../types/config.ts";
 
 dotenv.config();
 

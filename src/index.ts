@@ -1,4 +1,4 @@
-import bot from "./bot/index.js";
+import bot from "./bot/index.ts";
 
 const bootstrap = () => {
   bot.start({
