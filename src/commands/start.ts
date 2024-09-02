@@ -1,4 +1,4 @@
-import MyContext from "../types/context";
+import MyContext from "../types/context.js";
 
 const startCommand = async (ctx: MyContext) => {
   await ctx.reply("hi!");

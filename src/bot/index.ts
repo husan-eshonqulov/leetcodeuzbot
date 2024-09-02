@@ -1,7 +1,7 @@
 import { Bot } from "grammy";
-import config from "../config/index.ts";
-import startCommand from "../commands/start.ts";
-import echo from "../middlewares/echo.ts";
+import config from "../config/index.js";
+import startCommand from "../commands/start.js";
+import echo from "../middlewares/echo.js";
 
 const bot = new Bot(config.botToken);
 
