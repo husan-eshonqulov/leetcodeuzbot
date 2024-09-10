@@ -2,6 +2,7 @@ import MyContext from "../types/context.js";
 import MyCommand from "../types/command.js";
 
 const startFn = async (ctx: MyContext) => {
+  console.log(ctx.update.message?.from);
   await ctx.reply("use /register command for registeration");
 };
 

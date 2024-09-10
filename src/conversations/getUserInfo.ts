@@ -2,6 +2,7 @@ import { createConversation } from "@grammyjs/conversations";
 import MyContext from "../types/context.js";
 import MyConversation from "../types/conversation.js";
 import yesNo from "../keyboards/custom/yesNo.js";
+import { connectDb } from "../util/index.js";
 
 const getUserInfo = createConversation(
   async (con: MyConversation, ctx: MyContext) => {
@@ -23,9 +24,34 @@ const getUserInfo = createConversation(
       return;
     }
     if (answer === "ha") {
-      return await ctx.reply("O'zgarishlar saqlandi.", {
-        reply_markup: { remove_keyboard: true }
-      });
+      const {
+        id: tg_id,
+        is_bot,
+        first_name,
+        last_name,
+        username: tg_username
+      } = ctx.update.message!.from;
+      const db = connectDb();
+      console.log(tg_username);
+      db.all(
+        `SELECT * FROM users WHERE tg_username = "${tg_username}"`,
+        async (err, [user]) => {
+          if (err) {
+            return console.error(err);
+          }
+          if (!user) {
+            db.run(
+              "INSERT INTO users (tg_id, is_bot, first_name, last_name, tg_username, lc_username) VALUES (?, ?, ?, ?, ?, ?)",
+              [tg_id, is_bot, first_name, last_name, tg_username, username]
+            );
+            return await ctx.reply("O'zgarishlar saqlandi.", {
+              reply_markup: { remove_keyboard: true }
+            });
+          } else {
+            await ctx.reply(`${tg_username} user already exist`);
+          }
+        }
+      );
     } else {
       return await ctx.reply("O'zgarishlar bekor qilindi.", {
         reply_markup: { remove_keyboard: true }

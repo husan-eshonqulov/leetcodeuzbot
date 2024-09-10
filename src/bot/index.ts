@@ -2,7 +2,7 @@ import { Bot, session } from "grammy";
 import { conversations } from "@grammyjs/conversations";
 import MyContext from "../types/context.js";
 import config from "../config/index.js";
-import { regComs, regCons } from "../utils/index.js";
+import { regComs, regCons } from "../helpers/index.js";
 import commands from "../commands/index.js";
 import convers from "../conversations/index.js";
 import echo from "../middlewares/echo.js";
