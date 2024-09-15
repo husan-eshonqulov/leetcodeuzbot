@@ -1,15 +1,14 @@
-import path from "node:path";
-import sqlite from "sqlite3";
+import type MyBot from "../types/bot.js";
+import type MyCommand from "../types/command.js";
+import type MyConversation from "../types/conversation.js";
+import { createConversation } from "@grammyjs/conversations";
 
-const dbPath = path.join(import.meta.dirname, "..", "..", "db", "leetcode.db");
+// Register commands to bot
+export const regComs = (bot: MyBot, coms: MyCommand[]) => {
+  coms.forEach((com) => bot.command(com.command, com.commandFunc));
+};
 
-sqlite.verbose();
-
-export const connectDb = () => {
-  const db = new sqlite.Database(dbPath, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
-  return db;
+// Register conversations to bot
+export const regCons = (bot: MyBot, cons: MyConversation[]) => {
+  cons.forEach((con) => bot.use(createConversation(con.builderFunc, con.name)));
 };

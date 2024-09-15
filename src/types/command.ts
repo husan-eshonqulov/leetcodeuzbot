@@ -1,10 +1,12 @@
-import { CommandMiddleware } from "grammy";
-import MyContext from "./context.js";
+import type { CommandMiddleware } from "grammy";
+import type MyContext from "./context.js";
+
+export type MyCommandFunc = CommandMiddleware<MyContext>;
 
 interface MyCommand {
-  name: string;
-  desc: string;
-  func: CommandMiddleware<MyContext>;
+  command: string;
+  description: string;
+  commandFunc: MyCommandFunc;
 }
 
 export default MyCommand;

@@ -1,15 +1,14 @@
-import MyContext from "../types/context.js";
-import MyCommand from "../types/command.js";
+import type MyCommand from "../types/command.js";
+import type { MyCommandFunc } from "../types/command.js";
 
-const startFn = async (ctx: MyContext) => {
-  console.log(ctx.update.message?.from);
+const startFn: MyCommandFunc = async (ctx) => {
   await ctx.reply("use /register command for registeration");
 };
 
 const start: MyCommand = {
-  name: "start",
-  desc: "this is start command",
-  func: startFn
+  command: "start",
+  description: "this is start command",
+  commandFunc: startFn
 };
 
 export default start;

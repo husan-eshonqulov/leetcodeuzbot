@@ -1,14 +1,14 @@
-import MyCommand from "../types/command.js";
-import MyContext from "../types/context.js";
+import type MyCommand from "../types/command.js";
+import type { MyCommandFunc } from "../types/command.js";
 
-const registerFn = async (ctx: MyContext) => {
-  await ctx.conversation.enter("getUserInfo");
+const registerFn: MyCommandFunc = async (ctx) => {
+  await ctx.conversation.enter("registerUser");
 };
 
 const register: MyCommand = {
-  name: "register",
-  desc: "register user",
-  func: registerFn
+  command: "register",
+  description: "register user",
+  commandFunc: registerFn
 };
 
 export default register;

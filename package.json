@@ -37,6 +37,7 @@
     "@grammyjs/conversations": "^1.2.0",
     "dotenv": "^16.4.5",
     "grammy": "^1.29.0",
+    "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
   }
 }

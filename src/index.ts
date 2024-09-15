@@ -1,15 +1,17 @@
 import bot from "./bot/index.js";
-import { connectDb } from "./util/index.js";
-import { createUserTable } from "./helpers/index.js";
+import defineAssociations from "./models/association.js";
+import { connectDb } from "./util/db.js";
 
 const bootstrap = () => {
-  const db = connectDb();
-  console.log("Connection with SQLite has been established...");
-  createUserTable(db);
+  defineAssociations();
   bot.start({
     onStart: () =>
       console.log(`https://t.me/${bot.botInfo.username} started...`)
   });
 };
 
-bootstrap();
+connectDb()
+  .then(bootstrap)
+  .catch((err) => {
+    throw err;
+  });

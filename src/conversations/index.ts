@@ -1,5 +1,5 @@
-import getUserInfo from "./getUserInfo.js";
+import registerUser from "./register.js";
 
-const conversations = [getUserInfo];
+const conversations = [registerUser];
 
 export default conversations;

@@ -1,5 +1,5 @@
+import type IConfig from "../types/config.js";
 import dotenv from "dotenv";
-import IConfig from "../types/config.js";
 
 dotenv.config();
 
