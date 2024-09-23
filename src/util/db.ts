@@ -1,7 +1,13 @@
 import path from "node:path";
 import { Sequelize } from "sequelize";
 
-const dbPath = path.join(import.meta.dirname, "..", "..", "db", "leetcode.db");
+const dbPath = path.join(
+  import.meta.dirname,
+  "..",
+  "..",
+  "db",
+  "database.sqlite"
+);
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
@@ -9,13 +15,5 @@ export const sequelize = new Sequelize({
 });
 
 export const connectDb = async () => {
-  return sequelize
-    .authenticate()
-    .then(() => {
-      console.log("Databe connecting successfully...");
-      return sequelize.sync();
-    })
-    .catch((err) => {
-      throw err;
-    });
+  return sequelize.sync({ force: true });
 };
