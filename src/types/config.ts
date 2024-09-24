@@ -1,5 +1,5 @@
-interface IConfig {
+interface MyConfig {
   botToken: string;
 }
 
-export default IConfig;
+export default MyConfig;

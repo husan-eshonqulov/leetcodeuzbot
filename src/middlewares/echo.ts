@@ -1,4 +1,4 @@
-import type MyContext from "../types/context.js";
+import MyContext from "../types/context.js";
 
 const echo = async (ctx: MyContext) => {
   if (ctx.message?.text) {

@@ -1,12 +1,12 @@
-import type { Conversation, ConversationFn } from "@grammyjs/conversations";
+import { Conversation, ConversationFn } from "@grammyjs/conversations";
 import MyContext from "./context.js";
 
-export type MyConType = Conversation<MyContext>;
-type BuilderFunc = ConversationFn<MyContext>;
+export type MyConversationType = Conversation<MyContext>;
+type MyConversationBuilder = ConversationFn<MyContext>;
 
 interface MyConversation {
-  name: string;
-  builderFunc: BuilderFunc;
+  title: string;
+  builder: MyConversationBuilder;
 }
 
 export default MyConversation;

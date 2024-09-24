@@ -1,11 +1,10 @@
-import type MyContext from "../types/context.js";
-import type MyConversation from "../types/conversation.js";
-import type { MyConType } from "../types/conversation.js";
+import MyContext from "../types/context.js";
+import MyConversation, { MyConversationType } from "../types/conversation.js";
+import { getLcUsername, confirmInfo } from "../helpers/conversation.js";
+import { getLastSubmissionDate } from "../util/api.js";
 import User from "../models/user.js";
-import { getLcUsername, confirmInfo } from "../helpers/index.js";
-import { getLastSub } from "../util/api.js";
 
-const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
+const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   const from = ctx.from!;
   const id = from.id;
   const firstname = from.first_name;
@@ -24,7 +23,7 @@ const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
   }
 
   const user = await User.findByPk(id);
-  const lastSub = await getLastSub(lcUsername);
+  const lastSub = await getLastSubmissionDate(lcUsername);
 
   if (user) {
     user.set({ username, firstname, lastname });
@@ -32,7 +31,7 @@ const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
     const profile = await user.getProfile();
     profile.set({ username: lcUsername, lastSubmission: lastSub });
     await profile.save();
-    return await ctx.reply("User updated");
+    return await ctx.reply("O'zgarishlar saqlandi");
   } else {
     const newUser = await User.create({ id, username, firstname, lastname });
     await newUser.createProfile({
@@ -45,8 +44,8 @@ const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
 };
 
 const registerUser: MyConversation = {
-  name: "registerUser",
-  builderFunc: regUserBuilder
+  title: "registerUser",
+  builder: registerUserBuilder
 };
 
 export default registerUser;

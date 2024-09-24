@@ -1,9 +1,9 @@
-import type IConfig from "../types/config.js";
 import dotenv from "dotenv";
+import MyConfig from "../types/config.js";
 
 dotenv.config();
 
-const config: IConfig = {
+const config: MyConfig = {
   botToken: process.env.BOT_TOKEN!
 };
 

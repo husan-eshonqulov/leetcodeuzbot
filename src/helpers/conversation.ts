@@ -1,10 +1,10 @@
-import type { MyConType } from "../types/conversation.js";
-import type MyContext from "../types/context.js";
-import type { FixedLenArr } from "../types/index.js";
+import MyContext from "../types/context.js";
+import { MyConversationType } from "../types/conversation.js";
+import { FixedLenArr } from "../types/index.js";
 import yesNo from "../keyboards/custom/yesNo.js";
 
 // Get firstname within conversation
-export const getFirstname = async (con: MyConType, ctx: MyContext) => {
+export const getFirstname = async (con: MyConversationType, ctx: MyContext) => {
   await ctx.reply("Ismingizni kiriting: ");
   const firstnameCtx = await con.waitFor(":text");
   const firstname = firstnameCtx.msg.text;
@@ -12,7 +12,7 @@ export const getFirstname = async (con: MyConType, ctx: MyContext) => {
 };
 
 // Get lastname within conversation
-export const getLastname = async (con: MyConType, ctx: MyContext) => {
+export const getLastname = async (con: MyConversationType, ctx: MyContext) => {
   await ctx.reply("Familiyangizni kiriting: ");
   const lastnameCtx = await con.waitFor(":text");
   const lastname = lastnameCtx.msg.text;
@@ -20,7 +20,10 @@ export const getLastname = async (con: MyConType, ctx: MyContext) => {
 };
 
 // Get leetcode username within conversation
-export const getLcUsername = async (con: MyConType, ctx: MyContext) => {
+export const getLcUsername = async (
+  con: MyConversationType,
+  ctx: MyContext
+) => {
   await ctx.reply("Leetcode username'ingizni kiriting: ");
   const lcUsernameCtx = await con.waitFor(":text");
   const lcUsername = lcUsernameCtx.msg.text;
@@ -32,7 +35,7 @@ export const confirmInfo = async <
   T extends number,
   U extends FixedLenArr<string, T>
 >(
-  con: MyConType,
+  con: MyConversationType,
   ctx: MyContext,
   titles: U,
   info: NoInfer<U>

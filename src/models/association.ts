@@ -1,7 +1,7 @@
 import User from "./user.js";
 import Profile from "./profile.js";
 
-const setAssociations = () => {
+const setModelAssociations = () => {
   User.hasOne(Profile, {
     foreignKey: "userId",
     onDelete: "CASCADE",
@@ -16,4 +16,4 @@ const setAssociations = () => {
   });
 };
 
-export default setAssociations;
+export default setModelAssociations;

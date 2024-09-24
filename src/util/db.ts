@@ -1,7 +1,7 @@
 import path from "node:path";
 import { Sequelize } from "sequelize";
 
-const dbPath = path.join(
+const pathToDb = path.join(
   import.meta.dirname,
   "..",
   "..",
@@ -11,9 +11,9 @@ const dbPath = path.join(
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: dbPath
+  storage: pathToDb
 });
 
-export const connectDb = async () => {
+export const connectDb = () => {
   return sequelize.sync({ force: true });
 };

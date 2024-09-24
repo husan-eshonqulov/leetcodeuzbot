@@ -1,14 +1,13 @@
-import type MyCommand from "../types/command.js";
-import type { MyCommandFunc } from "../types/command.js";
+import MyCommand, { MyCommandFn } from "../types/command.js";
 
-const startFn: MyCommandFunc = async (ctx) => {
-  await ctx.reply("use /register command for registeration");
+const startCommandFn: MyCommandFn = async (ctx) => {
+  await ctx.reply("Ro'yxatdan o'tish uchun /register buyrug'idan foydalaning.");
 };
 
-const start: MyCommand = {
+const startCommand: MyCommand = {
   command: "start",
-  description: "this is start command",
-  commandFunc: startFn
+  description: "botni ishga tushurish",
+  commandFn: startCommandFn
 };
 
-export default start;
+export default startCommand;

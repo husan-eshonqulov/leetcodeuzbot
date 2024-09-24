@@ -58,28 +58,3 @@ User.init(
 );
 
 export default User;
-
-// import type { ModelAttributes } from "sequelize";
-// import { DataTypes } from "sequelize";
-// import { sequelize } from "../util/db.js";
-// import { IUserModel } from "../types/model.js";
-
-// const userSchema: ModelAttributes = {
-//   id: {
-//     type: DataTypes.INTEGER,
-//     primaryKey: true
-//   },
-//   username: {
-//     type: DataTypes.STRING,
-//     unique: true
-//   },
-//   firstname: {
-//     type: DataTypes.STRING,
-//     allowNull: false
-//   },
-//   lastname: DataTypes.STRING
-// };
-
-// const User = sequelize.define<IUserModel>("User", userSchema);
-
-// export default User;
