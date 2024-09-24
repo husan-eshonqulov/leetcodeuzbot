@@ -3,6 +3,7 @@ import type MyConversation from "../types/conversation.js";
 import type { MyConType } from "../types/conversation.js";
 import User from "../models/user.js";
 import { getLcUsername, confirmInfo } from "../helpers/index.js";
+import { getLastSub } from "../util/api.js";
 
 const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
   const from = ctx.from!;
@@ -23,19 +24,20 @@ const regUserBuilder = async (con: MyConType, ctx: MyContext) => {
   }
 
   const user = await User.findByPk(id);
+  const lastSub = await getLastSub(lcUsername);
 
   if (user) {
     user.set({ username, firstname, lastname });
     await user.save();
     const profile = await user.getProfile();
-    profile.set({ username: lcUsername, lastSubmission: new Date() });
+    profile.set({ username: lcUsername, lastSubmission: lastSub });
     await profile.save();
     return await ctx.reply("User updated");
   } else {
     const newUser = await User.create({ id, username, firstname, lastname });
     await newUser.createProfile({
       username: lcUsername,
-      lastSubmission: new Date(),
+      lastSubmission: lastSub,
       userId: newUser.id
     });
     return await ctx.reply("User ro'yxatga olindi");
