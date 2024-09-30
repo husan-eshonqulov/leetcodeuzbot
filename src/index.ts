@@ -1,8 +1,5 @@
-import setModelAssociations from "./models/association.js";
 import { connectDb } from "./util/db.js";
 import bot from "./bot/bot.js";
-
-setModelAssociations();
 
 const bootstrap = () => {
   bot.start({

@@ -20,14 +20,11 @@ export const getLastname = async (con: MyConversationType, ctx: MyContext) => {
 };
 
 // Get leetcode username within conversation
-export const getLcUsername = async (
-  con: MyConversationType,
-  ctx: MyContext
-) => {
-  await ctx.reply("Leetcode username'ingizni kiriting: ");
-  const lcUsernameCtx = await con.waitFor(":text");
-  const lcUsername = lcUsernameCtx.msg.text;
-  return lcUsername;
+export const getProfile = async (con: MyConversationType, ctx: MyContext) => {
+  await ctx.reply("Leetcode username kiriting: ");
+  const profileCtx = await con.waitFor(":text");
+  const profile = profileCtx.msg.text;
+  return profile;
 };
 
 // Confirm info true or false within conversation

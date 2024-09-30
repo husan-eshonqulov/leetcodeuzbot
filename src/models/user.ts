@@ -2,38 +2,21 @@ import {
   Model,
   InferAttributes,
   InferCreationAttributes,
-  CreationOptional,
-  NonAttribute,
-  Association,
-  HasOneGetAssociationMixin,
-  HasOneSetAssociationMixin,
-  HasOneCreateAssociationMixin,
-  DataTypes
+  DataTypes,
+  CreationOptional
 } from "sequelize";
-import Profile from "./profile";
 import { sequelize } from "../util/db.js";
 
-class User extends Model<
-  InferAttributes<User, { omit: "profile" }>,
-  InferCreationAttributes<User, { omit: "profile" }>
-> {
-  declare id: number;
-  declare username: string | null;
+class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
+  declare readonly id: number;
   declare firstname: string;
   declare lastname: string | null;
+  declare username: string | null;
+  declare profile: string | null;
+  declare isMember: boolean;
 
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-
-  declare profile?: NonAttribute<Profile>;
-
-  declare getProfile: HasOneGetAssociationMixin<Profile>;
-  declare setProfile: HasOneSetAssociationMixin<Profile, number>;
-  declare createProfile: HasOneCreateAssociationMixin<Profile>;
-
-  declare static associations: {
-    profile: Association<User, Profile>;
-  };
+  declare readonly createdAt: CreationOptional<Date>;
+  declare readonly updatedAt: CreationOptional<Date>;
 }
 
 User.init(
@@ -42,15 +25,15 @@ User.init(
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    username: {
-      type: DataTypes.STRING,
-      unique: true
-    },
     firstname: {
       type: DataTypes.STRING,
       allowNull: false
     },
     lastname: DataTypes.STRING,
+    username: DataTypes.STRING,
+    profile: DataTypes.STRING,
+    isMember: DataTypes.BOOLEAN,
+
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   },
