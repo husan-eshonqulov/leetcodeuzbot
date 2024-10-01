@@ -1,4 +1,4 @@
-import MyCommand, { MyCommandFn } from "../types/command.js";
+import MyCommand, { MyCommandFn } from "../../types/command.js";
 
 const registerCommandFn: MyCommandFn = async (ctx) => {
   await ctx.conversation.enter("registerUser");
