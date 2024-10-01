@@ -1,31 +1,31 @@
-import { Bot, session } from "grammy";
-import { conversations } from "@grammyjs/conversations";
+import { Bot } from "grammy";
 import MyContext from "../types/context.js";
 import config from "../config/config.js";
+import privateChatComposer from "../composers/privateChat.js";
+import groupChatComposer from "../composers/groupChat.js";
 import privateCommands from "../commands/private/index.js";
 import groupCommands from "../commands/group/index.js";
-import convers from "../conversations/conversations.js";
-import { registerCommands, registerConversations } from "../util/composer.js";
+import { CommandTypes } from "../types/command.js";
 import echo from "../middlewares/echo.js";
-import { groupChatFilter, privateChatFilter } from "../middlewares/filter.js";
+import {
+  allowedGroup,
+  groupChatFilter,
+  privateChatFilter
+} from "../middlewares/filter.js";
 
 const bot = new Bot<MyContext>(config.botToken);
 
-const privateChats = privateChatFilter(bot);
-const groupChats = groupChatFilter(bot);
+const privateChat = privateChatFilter(bot);
+const groupChat = groupChatFilter(bot);
 
-privateChats.use(session({ initial: () => ({}) }));
-privateChats.use(conversations());
-
-registerConversations(privateChats, convers);
-registerCommands(privateChats, privateCommands);
-registerCommands(groupChats, groupCommands);
+privateChat.use(privateChatComposer);
+groupChat.use(allowedGroup, groupChatComposer);
 
 bot.api.setMyCommands(privateCommands, {
-  scope: { type: "all_private_chats" }
+  scope: { type: CommandTypes.private }
 });
 
-bot.api.setMyCommands(groupCommands, { scope: { type: "all_group_chats" } });
+bot.api.setMyCommands(groupCommands, { scope: { type: CommandTypes.group } });
 
 bot.on("message", echo);
 

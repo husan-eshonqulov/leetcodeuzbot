@@ -1,7 +1,9 @@
-import MyContext from "../types/context.js";
-import MyConversation, { MyConversationType } from "../types/conversation.js";
-import { getProfile, confirmInfo } from "../helpers/conversation.js";
-import User from "../models/user.js";
+import MyContext from "../../types/context.js";
+import MyConversation, {
+  MyConversationType
+} from "../../types/conversation.js";
+import { getProfile, confirmInfo } from "../../helpers/conversation.js";
+import User from "../../models/user.js";
 
 const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   const from = ctx.from!;
