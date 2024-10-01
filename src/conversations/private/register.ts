@@ -20,7 +20,9 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   );
 
   if (answer !== "ha") {
-    return ctx.reply("So'rov bekor qilindi");
+    return ctx.reply("So'rov bekor qilindi", {
+      reply_markup: { remove_keyboard: true }
+    });
   }
 
   const user = await User.findByPk(id);
@@ -28,7 +30,9 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   if (user) {
     user.set({ username, firstname, lastname, profile });
     await user.save();
-    return await ctx.reply("O'zgarishlar saqlandi");
+    return await ctx.reply("O'zgarishlar saqlandi", {
+      reply_markup: { remove_keyboard: true }
+    });
   } else {
     await User.create({
       id,
@@ -38,7 +42,10 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
       profile,
       isMember: false
     });
-    return await ctx.reply("User ro'yxatga olindi");
+    return await ctx.reply(
+      "User ro'yxatga olindi\nGuruhga qo'shilish: https://t.me/+fYmK3CopGEhmYTEy",
+      { reply_markup: { remove_keyboard: true } }
+    );
   }
 };
 

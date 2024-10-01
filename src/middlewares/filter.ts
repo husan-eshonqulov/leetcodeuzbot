@@ -15,4 +15,5 @@ export const allowedGroup = (ctx: MyContext, next: NextFunction) => {
   if (ctx.update.message?.chat.id === config.groupId) {
     return next();
   }
+  return;
 };
