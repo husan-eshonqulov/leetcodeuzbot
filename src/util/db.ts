@@ -15,5 +15,5 @@ export const sequelize = new Sequelize({
 });
 
 export const connectDb = () => {
-  return sequelize.sync({ force: true });
+  return sequelize.sync();
 };
