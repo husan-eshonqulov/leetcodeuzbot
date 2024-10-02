@@ -1,30 +1,27 @@
 import MyContext from "../types/context.js";
 import { MyConversationType } from "../types/conversation.js";
-import { FixedLenArr } from "../types/index.js";
+import { FixedLenArr } from "../types/util.js";
 import yesNo from "../keyboards/custom/yesNo.js";
 
 // Get firstname within conversation
 export const getFirstname = async (con: MyConversationType, ctx: MyContext) => {
   await ctx.reply("Ismingizni kiriting: ");
   const firstnameCtx = await con.waitFor(":text");
-  const firstname = firstnameCtx.msg.text;
-  return firstname;
+  return firstnameCtx.msg.text;
 };
 
 // Get lastname within conversation
 export const getLastname = async (con: MyConversationType, ctx: MyContext) => {
   await ctx.reply("Familiyangizni kiriting: ");
   const lastnameCtx = await con.waitFor(":text");
-  const lastname = lastnameCtx.msg.text;
-  return lastname;
+  return lastnameCtx.msg.text;
 };
 
 // Get leetcode username within conversation
 export const getProfile = async (con: MyConversationType, ctx: MyContext) => {
   await ctx.reply("Leetcode username kiriting: ");
   const profileCtx = await con.waitFor(":text");
-  const profile = profileCtx.msg.text;
-  return profile;
+  return profileCtx.msg.text;
 };
 
 // Confirm info true or false within conversation

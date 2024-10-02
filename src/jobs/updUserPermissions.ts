@@ -1,7 +1,7 @@
 import User from "../models/user.js";
 import bot from "../bot/bot.js";
 import config from "../config/config.js";
-import { allowPermissions, disallowPermissions } from "../util/group.js";
+import { givePermissions, takePermissions } from "../util/group.js";
 import { UserPermission } from "../types/group.js";
 import { getUserLastSubDateInSecs } from "../util/api.js";
 import { dateToSecs, oneDayInSecs } from "../util/date.js";
@@ -30,20 +30,20 @@ const updUserPermissions = async () => {
         await bot.api.restrictChatMember(
           config.groupId,
           user.id,
-          allowPermissions(permissions)
+          givePermissions(permissions)
         );
       } else {
         await bot.api.restrictChatMember(
           config.groupId,
           user.id,
-          disallowPermissions(permissions)
+          takePermissions(permissions)
         );
       }
     } else {
       await bot.api.restrictChatMember(
         config.groupId,
         user.id,
-        disallowPermissions(permissions)
+        takePermissions(permissions)
       );
     }
   });

@@ -1,21 +1,15 @@
 import { UserPermission } from "../types/group.js";
 
-export const allowPermissions = (permissions: UserPermission[]) => {
-  const allowedPermissions: { [key: string]: boolean } = {};
-
-  permissions.forEach((perm) => {
-    allowedPermissions[perm] = true;
-  });
-
-  return allowedPermissions;
+export const givePermissions = (permissions: UserPermission[]) => {
+  return permissions.reduce(
+    (allowed, perm) => ((allowed[perm] = true), allowed),
+    {} as { [key: string]: boolean }
+  );
 };
 
-export const disallowPermissions = (permissions: UserPermission[]) => {
-  const disallowedPermissions: { [key: string]: boolean } = {};
-
-  permissions.forEach((perm) => {
-    disallowedPermissions[perm] = false;
-  });
-
-  return disallowedPermissions;
+export const takePermissions = (permissions: UserPermission[]) => {
+  return permissions.reduce(
+    (disallowed, perm) => ((disallowed[perm] = false), disallowed),
+    {} as { [key: string]: boolean }
+  );
 };

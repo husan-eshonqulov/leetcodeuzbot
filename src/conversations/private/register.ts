@@ -12,12 +12,7 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   const lastname = from.last_name;
   const username = from.username;
   const profile = await getProfile(con, ctx);
-  const answer = await confirmInfo(
-    con,
-    ctx,
-    ["Ism", "Leetcode username"],
-    [`${firstname} ${lastname}`, profile]
-  );
+  const answer = await confirmInfo(con, ctx, ["Leetcode username"], [profile]);
 
   if (answer !== "ha") {
     return ctx.reply("So'rov bekor qilindi", {
@@ -30,7 +25,7 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   if (user) {
     user.set({ username, firstname, lastname, profile });
     await user.save();
-    return await ctx.reply("O'zgarishlar saqlandi", {
+    return ctx.reply("O'zgarishlar saqlandi", {
       reply_markup: { remove_keyboard: true }
     });
   } else {
@@ -42,8 +37,8 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
       profile,
       isMember: false
     });
-    return await ctx.reply(
-      "User ro'yxatga olindi\nGuruhga qo'shilish: https://t.me/+fYmK3CopGEhmYTEy",
+    return ctx.reply(
+      "User ro'yxatga olindi\nGuruhga qo'shilish: https://t.me/leetcodeChallangeUz",
       { reply_markup: { remove_keyboard: true } }
     );
   }

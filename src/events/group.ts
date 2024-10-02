@@ -2,9 +2,9 @@ import MyContext from "../types/context.js";
 import User from "../models/user.js";
 
 export const userJoin = async (ctx: MyContext) => {
-  const newMembers = ctx.update.message!.new_chat_members;
+  const newMembers = ctx.update.message!.new_chat_members!;
 
-  newMembers!.forEach(async (member) => {
+  newMembers.forEach(async (member) => {
     const id = member.id;
     const firstname = member.first_name;
     const lastname = member.last_name;
@@ -28,7 +28,9 @@ export const userLeft = async (ctx: MyContext) => {
     last_name: lastname,
     username
   } = ctx.update.message!.left_chat_member!;
-  const user = (await User.findByPk(id))!;
-  user.set({ firstname, lastname, username, isMember: false });
-  await user.save();
+  const user = await User.findByPk(id);
+  if (user) {
+    user.set({ firstname, lastname, username, isMember: false });
+    await user.save();
+  }
 };
