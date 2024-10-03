@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - GROUP_ID=${GROUP_ID}
+    volumes:
+      - sqlite_data:/app/db
+
+volumes:
+  sqlite_data:

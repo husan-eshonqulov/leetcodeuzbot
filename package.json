@@ -9,7 +9,7 @@
     "start:dev": "nodemon src/index.ts",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "keywords": [],
   "author": "",
