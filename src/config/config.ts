@@ -1,11 +1,17 @@
+import path from "node:path";
 import dotenv from "dotenv";
-import MyConfig from "../types/config.js";
+import type MyConfig from "../types/config.d.ts";
+import { getEnvVar } from "../util/env.js";
+
+const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");
 
 dotenv.config();
 
 const config: MyConfig = {
-  botToken: process.env.BOT_TOKEN!,
-  groupId: +process.env.GROUP_ID!
+  botToken: getEnvVar("BOT_TOKEN")!,
+  groupId: parseInt(getEnvVar("GROUP_ID")!),
+  dbPath: getEnvVar("DB_PATH", false) || dbPath,
+  logLevel: getEnvVar("LOG_LEVEL", false) || "info"
 };
 
 export default config;

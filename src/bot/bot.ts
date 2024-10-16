@@ -1,17 +1,17 @@
 import { Bot } from "grammy";
-import MyContext from "../types/context.js";
+import type MyContext from "../types/context.d.ts";
 import config from "../config/config.js";
-import privateChatComposer from "../composers/privateChat.js";
-import groupChatComposer from "../composers/groupChat.js";
-import privateCommands from "../commands/private/index.js";
-import groupCommands from "../commands/group/index.js";
-import { CommandTypes } from "../types/command.js";
-import echo from "../middlewares/echo.js";
+import privateChatComposer from "../composer/privateChat.js";
+import groupChatComposer from "../composer/groupChat.js";
+import privateCommands from "../command/private/index.js";
+import groupCommands from "../command/group/index.js";
+import { CommandType } from "../command/type.js";
+import echo from "../middleware/echo.js";
 import {
-  allowedGroup,
+  allowGroup,
   groupChatFilter,
   privateChatFilter
-} from "../middlewares/filter.js";
+} from "../middleware/filter.js";
 
 const bot = new Bot<MyContext>(config.botToken);
 
@@ -19,13 +19,13 @@ const privateChat = privateChatFilter(bot);
 const groupChat = groupChatFilter(bot);
 
 privateChat.use(privateChatComposer);
-groupChat.use(allowedGroup, groupChatComposer);
+groupChat.use(allowGroup, groupChatComposer);
 
 bot.api.setMyCommands(privateCommands, {
-  scope: { type: CommandTypes.private }
+  scope: { type: CommandType.private }
 });
 
-bot.api.setMyCommands(groupCommands, { scope: { type: CommandTypes.group } });
+bot.api.setMyCommands(groupCommands, { scope: { type: CommandType.group } });
 
 bot.on("message", echo);
 

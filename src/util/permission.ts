@@ -1,6 +1,6 @@
 import bot from "../bot/bot.js";
 import config from "../config/config.js";
-import { UserPermissions } from "../types/permission.js";
+import type { UserPermissions } from "../types/permission.d.ts";
 
 export const restrictUser = async (
   userId: number,
