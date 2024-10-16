@@ -1,7 +1,7 @@
 import { NextFunction } from "grammy";
 import config from "../config/config.js";
-import type MyBot from "../types/bot.d.ts";
-import type MyContext from "../types/context.d.ts";
+import type MyBot from "../types/bot";
+import type MyContext from "../types/context";
 
 export const privateChatFilter = (bot: MyBot) =>
   bot.filter((ctx) => ctx.chat?.type === "private");

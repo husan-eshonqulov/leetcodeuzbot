@@ -1,6 +1,6 @@
-import type MyContext from "../types/context.d.ts";
-import type MyConversation from "../types/conversation.d.ts";
-import type { MyConversationType } from "../types/conversation.d.ts";
+import type MyContext from "../types/context";
+import type MyConversation from "../types/conversation";
+import type { MyConversationType } from "../types/conversation";
 import { getProfile, confirmInfo } from "../helper/conversation.js";
 import { User } from "../model/index.js";
 

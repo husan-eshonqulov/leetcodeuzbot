@@ -1,6 +1,6 @@
-import type MyContext from "../types/context.d.ts";
-import type { MyConversationType } from "../types/conversation.d.ts";
-import type { FixedLenArr } from "../types/util.d.ts";
+import type MyContext from "../types/context";
+import type { MyConversationType } from "../types/conversation";
+import type { FixedLenArr } from "../types/util";
 import yesNo from "../keyboard/yesNo.js";
 
 // Get firstname within conversation

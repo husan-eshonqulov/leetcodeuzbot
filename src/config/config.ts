@@ -1,6 +1,6 @@
 import path from "node:path";
 import dotenv from "dotenv";
-import type MyConfig from "../types/config.d.ts";
+import type MyConfig from "../types/config";
 import { getEnvVar } from "../util/env.js";
 
 const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");

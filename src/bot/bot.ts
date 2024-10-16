@@ -1,5 +1,5 @@
 import { Bot } from "grammy";
-import type MyContext from "../types/context.d.ts";
+import type MyContext from "../types/context";
 import config from "../config/config.js";
 import privateChatComposer from "../composer/privateChat.js";
 import groupChatComposer from "../composer/groupChat.js";

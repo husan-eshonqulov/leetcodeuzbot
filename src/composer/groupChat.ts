@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import type MyContext from "../types/context.d.ts";
+import type MyContext from "../types/context";
 import { registerCommands } from "../util/composer.js";
 import groupCommands from "../command/group/index.js";
 import { userJoinHandler, userLeftHandler } from "../event/event.js";

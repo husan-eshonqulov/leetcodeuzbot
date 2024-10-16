@@ -1,7 +1,7 @@
 import { createConversation } from "@grammyjs/conversations";
-import type MyCommand from "../types/command.d.ts";
-import type MyConversation from "../types/conversation.d.ts";
-import type MyComposer from "../types/composer.d.ts";
+import type MyCommand from "../types/command";
+import type MyConversation from "../types/conversation";
+import type MyComposer from "../types/composer";
 
 // Register commands to composer
 export const registerCommands = (

@@ -1,4 +1,4 @@
-import type MyContext from "../types/context.d.ts";
+import type MyContext from "../types/context";
 import { User } from "../model/index.js";
 
 export const userJoinHandler = async (ctx: MyContext) => {

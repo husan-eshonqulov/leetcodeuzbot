@@ -1,4 +1,4 @@
-import type { UserPermissions } from "../types/permission.d.ts";
+import type { UserPermissions } from "../types/permission";
 
 export const allowedPermissions: UserPermissions = {
   can_send_messages: true,

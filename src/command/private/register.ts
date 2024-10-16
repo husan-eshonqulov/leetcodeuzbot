@@ -1,5 +1,5 @@
-import type MyCommand from "../../types/command.d.ts";
-import type { MyCommandFn } from "../../types/command.d.ts";
+import type MyCommand from "../../types/command";
+import type { MyCommandFn } from "../../types/command";
 
 const registerCommandFn: MyCommandFn = async (ctx) => {
   await ctx.conversation.enter("registerUser");
