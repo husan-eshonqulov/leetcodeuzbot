@@ -1,6 +1,6 @@
 import cron from "node-cron";
 import bot from "./bot/bot.js";
-import connectDb from "./util/connectDb.js";
+import connectDb from "./helper/connectDb.js";
 import updUsrPermissions from "./cron/updUsrPermissions.js";
 
 const bootstrap = () => {

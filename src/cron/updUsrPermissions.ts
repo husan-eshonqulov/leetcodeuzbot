@@ -1,9 +1,9 @@
 import { User } from "../model/index.js";
-import { getLastSubmission } from "../util/api.js";
-import { dateToSeconds } from "../util/date.js";
+import { getLastSubmission } from "../helper/api.js";
+import { dateToSeconds } from "../helper/date.js";
 import type { UserPermissions } from "../types/permission";
-import { givePermissions, takePermissions } from "../util/permission.js";
-import { isSubmitted } from "../util/date.js";
+import { givePermissions, takePermissions } from "../helper/permission.js";
+import { isSubmitted } from "../helper/date.js";
 
 const permissions: Array<keyof UserPermissions> = [
   "can_send_messages",

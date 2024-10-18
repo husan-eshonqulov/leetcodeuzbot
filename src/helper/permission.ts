@@ -1,6 +1,6 @@
 import bot from "../bot/bot.js";
 import config from "../config/config.js";
-import type { UserPermissions } from "../types/permission";
+import type { UserPermissions } from "../types/permission.js";
 
 export const givePermissions = async (
   userId: number,

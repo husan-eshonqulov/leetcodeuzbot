@@ -1,7 +1,7 @@
 import { Composer, session } from "grammy";
 import { conversations } from "@grammyjs/conversations";
 import type MyContext from "../types/context";
-import { registerCommands, registerConversations } from "../util/composer.js";
+import { registerCommands, registerConversations } from "../helper/composer.js";
 import privateConvers from "../conversation/index.js";
 import privateCommands from "../command/private/index.js";
 

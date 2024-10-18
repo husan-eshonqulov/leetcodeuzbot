@@ -1,7 +1,7 @@
 import type MyContext from "../types/context";
 import type MyConversation from "../types/conversation";
 import type { MyConversationType } from "../types/conversation";
-import { getUserInfoFromCtx } from "../util/context.js";
+import { getUserInfoFromCtx } from "../helper/context.js";
 import { getProfile, confirmInfo } from "../helper/conversation.js";
 import { User } from "../model/index.js";
 
