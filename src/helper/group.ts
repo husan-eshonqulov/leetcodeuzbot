@@ -9,7 +9,7 @@ export const tagUsers = async (users: User[]) => {
       : `[${user.firstname}](tg://user?id=${user.id})`
   );
 
-  const message = `${tagedUsers.join(", ")} iltimos, masala yechishda davom etingizlar!`;
+  const message = `${tagedUsers.join(", ")} iltimos, masala yechishda davom eting!`;
   await bot.api.sendMessage(config.groupId, message, {
     parse_mode: "MarkdownV2"
   });

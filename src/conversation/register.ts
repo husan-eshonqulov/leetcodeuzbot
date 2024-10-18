@@ -1,15 +1,12 @@
 import type MyContext from "../types/context";
 import type MyConversation from "../types/conversation";
 import type { MyConversationType } from "../types/conversation";
+import { getUserInfoFromCtx } from "../util/context.js";
 import { getProfile, confirmInfo } from "../helper/conversation.js";
 import { User } from "../model/index.js";
 
 const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
-  const from = ctx.from!;
-  const id = from.id;
-  const firstname = from.first_name;
-  const lastname = from.last_name;
-  const username = from.username;
+  const { id, firstname, lastname, username } = getUserInfoFromCtx(ctx);
   const profile = await getProfile(con, ctx);
   const answer = await confirmInfo(con, ctx, ["Leetcode username"], [profile]);
 
@@ -24,9 +21,12 @@ const registerUserBuilder = async (con: MyConversationType, ctx: MyContext) => {
   if (user) {
     user.set({ username, firstname, lastname, profile });
     await user.save();
-    return ctx.reply("O'zgarishlar saqlandi", {
-      reply_markup: { remove_keyboard: true }
-    });
+    return ctx.reply(
+      "O'zgarishlar saqlandi.\nGuruhga qo'shilish: https://t.me/leetcodeChallangeUz",
+      {
+        reply_markup: { remove_keyboard: true }
+      }
+    );
   } else {
     await User.create({
       id,

@@ -5,11 +5,7 @@ export const userJoinHandler = async (ctx: MyContext) => {
   const newMembers = ctx.update.message!.new_chat_members!;
 
   newMembers.forEach(async (member) => {
-    const id = member.id;
-    const firstname = member.first_name;
-    const lastname = member.last_name;
-    const username = member.username;
-
+    const { id, first_name: firstname, last_name: lastname, username } = member;
     const user = await User.findByPk(id);
 
     if (user) {
