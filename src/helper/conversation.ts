@@ -5,23 +5,17 @@ import yesNo from "../keyboard/yesNo.js";
 
 // Get firstname within conversation
 export const getFirstname = async (con: MyConversationType, ctx: MyContext) => {
-  await ctx.reply("Ismingizni kiriting: ");
-  const firstnameCtx = await con.waitFor(":text");
-  return firstnameCtx.msg.text;
+  return promptInput(con, ctx, "Ismingizni kiriting: ");
 };
 
 // Get lastname within conversation
 export const getLastname = async (con: MyConversationType, ctx: MyContext) => {
-  await ctx.reply("Familiyangizni kiriting: ");
-  const lastnameCtx = await con.waitFor(":text");
-  return lastnameCtx.msg.text;
+  return promptInput(con, ctx, "Familiyangizni kiriting: ");
 };
 
 // Get leetcode username within conversation
 export const getProfile = async (con: MyConversationType, ctx: MyContext) => {
-  await ctx.reply("Leetcode username kiriting: ");
-  const profileCtx = await con.waitFor(":text");
-  return profileCtx.msg.text;
+  return promptInput(con, ctx, "Leetcode username kiriting: ");
 };
 
 // Confirm info true or false within conversation
@@ -42,4 +36,14 @@ export const confirmInfo = async <
   const answerCtx = await con.waitFor(":text");
   const answer = answerCtx.msg.text;
   return answer.toLowerCase().trim();
+};
+
+const promptInput = async (
+  con: MyConversationType,
+  ctx: MyContext,
+  msg: string
+) => {
+  await ctx.reply(msg);
+  const inputCtx = await con.waitFor(":text");
+  return inputCtx.msg.text;
 };
