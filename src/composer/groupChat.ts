@@ -1,10 +1,19 @@
-import { Composer } from "grammy";
+import { Composer, lazySession } from "grammy";
 import type MyContext from "../types/context";
 import { registerCommands } from "../helper/composer.js";
 import groupCommands from "../command/group/index.js";
 import { userJoinHandler, userLeftHandler } from "../event/event.js";
+import { MySessionData } from "../types/session";
 
 const groupChatComposer = new Composer<MyContext>();
+
+groupChatComposer.use(
+  lazySession({
+    initial: (): MySessionData<"group"> => {
+      return { language: "en" };
+    }
+  })
+);
 
 registerCommands(groupChatComposer, groupCommands);
 
