@@ -2,12 +2,12 @@ import type MyCommand from "../../types/command";
 import type { MyCommandFn } from "../../types/command";
 
 const helpCommandFn: MyCommandFn = async (ctx) => {
-  await ctx.reply(ctx.t("group-command.help"));
+  await ctx.reply(ctx.t("private-command.help"));
 };
 
 const helpCommand: MyCommand = {
   command: "help",
-  description: "take help",
+  description: "yordam olish",
   commandFn: helpCommandFn
 };
 
