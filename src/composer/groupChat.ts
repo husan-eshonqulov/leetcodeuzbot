@@ -4,16 +4,19 @@ import { registerCommands } from "../helper/composer.js";
 import groupCommands from "../command/group/index.js";
 import { userJoinHandler, userLeftHandler } from "../event/event.js";
 import { MySessionData } from "../types/session";
+import i18n from "../middleware/i18n.js";
 
 const groupChatComposer = new Composer<MyContext>();
 
 groupChatComposer.use(
   lazySession({
     initial: (): MySessionData<"group"> => {
-      return { language: "en" };
+      return { __language_code: "en" };
     }
   })
 );
+
+groupChatComposer.use(i18n);
 
 registerCommands(groupChatComposer, groupCommands);
 
