@@ -2,7 +2,7 @@ import MyCommand from "../../types/command";
 import { MyCommandFn } from "../../types/command";
 
 const languageCommandFn: MyCommandFn = async (ctx) => {
-  return await ctx.reply(ctx.t("private-command.language"));
+  return await ctx.conversation.enter("changeLangConversation");
 };
 
 const languageCommand: MyCommand = {

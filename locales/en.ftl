@@ -1,7 +1,20 @@
-language = Language
-  .first = uzbek
-  .second = english
-  .third = russian
+lang-uz = Languages to Uzbek
+  .title-uz = 🇺🇿 o'zbek tili
+  .title-en = 🇺🇸 ingliz tili
+  .title-ru = 🇷🇺 rus tili
+  
+lang-en = Languages to English
+  .title-uz = 🇺🇿 uzbek
+  .title-en = 🇺🇸 english
+  .title-ru = 🇷🇺 russian
+  
+lang-ru = Languages to Russian
+  .title-uz = 🇺🇿 узбекский
+  .title-en = 🇺🇸 английский
+  .title-ru = 🇷🇺 русский
+
+change-lang-success = Language successfully changed.
+change-lang-fail = Unexpected language. Try again.
 
 private-command = Private Command
   .start = Welcome to the bot! Type /help to get assistance.

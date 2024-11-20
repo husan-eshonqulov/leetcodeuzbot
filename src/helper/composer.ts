@@ -1,18 +1,18 @@
 import { createConversation } from "@grammyjs/conversations";
-import MyConversation from "../types/conversation";
 import MyCommand from "../types/command";
 import MyComposer from "../types/composer";
+import { ConversationDetails } from "../types/conversation";
 
-export const regConverstionsToComposer = (
+export const registerConverstionsToComposer = (
   composer: MyComposer,
-  conversations: MyConversation[]
+  conversations: ConversationDetails[]
 ) => {
   conversations.forEach((conversation) =>
     composer.use(createConversation(conversation.builder, conversation.title))
   );
 };
 
-export const regCommandsToComposer = (
+export const registerCommandsToComposer = (
   composer: MyComposer,
   commands: MyCommand[]
 ) => {
