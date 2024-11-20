@@ -1,8 +1,7 @@
 import startCommand from "./start.js";
-import registerCommand from "./register.js";
-import languageCommand from "./language.js";
 import helpCommand from "./help.js";
+import languageCommand from "./language.js";
 
-const commands = [startCommand, registerCommand, languageCommand, helpCommand];
+const commands = [startCommand, helpCommand, languageCommand];
 
 export default commands;

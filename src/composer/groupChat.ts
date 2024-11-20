@@ -1,10 +1,9 @@
 import { Composer, lazySession } from "grammy";
-import type MyContext from "../types/context";
-import { registerCommands } from "../helper/composer.js";
-import groupCommands from "../command/group/index.js";
-import { userJoinHandler, userLeftHandler } from "../event/event.js";
+import MyContext from "../types/context";
 import { MySessionData } from "../types/session";
 import i18n from "../middleware/i18n.js";
+import groupCommands from "../command/group/index.js";
+import { regCommandsToComposer } from "../helper/composer.js";
 
 const groupChatComposer = new Composer<MyContext>();
 
@@ -18,9 +17,6 @@ groupChatComposer.use(
 
 groupChatComposer.use(i18n);
 
-registerCommands(groupChatComposer, groupCommands);
-
-groupChatComposer.on(":new_chat_members", userJoinHandler);
-groupChatComposer.on(":left_chat_member", userLeftHandler);
+regCommandsToComposer(groupChatComposer, groupCommands);
 
 export default groupChatComposer;

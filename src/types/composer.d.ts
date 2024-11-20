@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import MyContext from "./context.d.ts";
+import MyContext from "./context";
 
 type MyComposer = Composer<MyContext>;
 

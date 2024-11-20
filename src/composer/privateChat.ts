@@ -1,11 +1,9 @@
 import { Composer, lazySession } from "grammy";
-import { conversations } from "@grammyjs/conversations";
-import type MyContext from "../types/context";
-import { registerCommands, registerConversations } from "../helper/composer.js";
-import privateConvers from "../conversation/index.js";
-import privateCommands from "../command/private/index.js";
+import MyContext from "../types/context";
 import { MySessionData } from "../types/session";
 import i18n from "../middleware/i18n.js";
+import privateCommands from "../command/private/index.js";
+import { regCommandsToComposer } from "../helper/composer.js";
 
 const privateChatComposer = new Composer<MyContext>();
 
@@ -18,9 +16,7 @@ privateChatComposer.use(
 );
 
 privateChatComposer.use(i18n);
-privateChatComposer.use(conversations());
 
-registerConversations(privateChatComposer, privateConvers);
-registerCommands(privateChatComposer, privateCommands);
+regCommandsToComposer(privateChatComposer, privateCommands);
 
 export default privateChatComposer;

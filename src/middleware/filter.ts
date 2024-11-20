@@ -1,9 +1,5 @@
-import type MyBot from "../types/bot";
+import MyBot from "../types/bot";
+import { chatTypeFilter } from "../helper/middleware.js";
 
-export const privateChatFilter = (bot: MyBot) => {
-  return bot.filter((ctx) => ctx.chat?.type === "private");
-};
-
-export const groupChatFilter = (bot: MyBot) => {
-  return bot.filter((ctx) => ctx.chat?.type === "supergroup");
-};
+export const privateChatFilter = (bot: MyBot) => chatTypeFilter(bot, "private");
+export const groupChatFilter = (bot: MyBot) => chatTypeFilter(bot, "group");

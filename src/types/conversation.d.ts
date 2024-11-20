@@ -1,5 +1,5 @@
 import { Conversation, ConversationFn } from "@grammyjs/conversations";
-import MyContext from "./context.d.ts";
+import MyContext from "./context";
 
 export type MyConversationType = Conversation<MyContext>;
 type MyConversationBuilder = ConversationFn<MyContext>;

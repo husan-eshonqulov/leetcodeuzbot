@@ -1,8 +1,8 @@
-import type MyCommand from "../../types/command";
-import type { MyCommandFn } from "../../types/command";
+import MyCommand from "../../types/command";
+import { MyCommandFn } from "../../types/command";
 
 const helpCommandFn: MyCommandFn = async (ctx) => {
-  await ctx.reply(ctx.t("group-command.help"));
+  return await ctx.reply(ctx.t("group-command.help"));
 };
 
 const helpCommand: MyCommand = {

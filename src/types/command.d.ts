@@ -1,5 +1,5 @@
 import { CommandMiddleware } from "grammy";
-import MyContext from "./context.d.ts";
+import MyContext from "./context";
 
 export type MyCommandFn = CommandMiddleware<MyContext>;
 
