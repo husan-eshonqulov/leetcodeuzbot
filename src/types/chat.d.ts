@@ -1,1 +1,1 @@
-export type ChatType = "private" | "group";
+export type ChatType = "private" | "supergroup";

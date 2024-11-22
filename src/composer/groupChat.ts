@@ -9,7 +9,7 @@ const groupChatComposer = new Composer<MyContext>();
 
 groupChatComposer.use(
   lazySession({
-    initial: (): MySessionData<"group"> => {
+    initial: (): MySessionData<"supergroup"> => {
       return { __language_code: "en" };
     }
   })

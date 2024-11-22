@@ -18,7 +18,7 @@ privateChat.use(privateChatComposer);
 groupChat.use(groupChatComposer);
 
 setCommandMenu(bot, privateChatCommands, "private");
-setCommandMenu(bot, groupChatCommands, "group");
+setCommandMenu(bot, groupChatCommands, "supergroup");
 
 bot.on("message", echo);
 
