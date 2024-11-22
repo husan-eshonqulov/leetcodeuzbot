@@ -1,6 +1,6 @@
 import MyBot from "../types/bot";
-import { ChatType } from "../types/chat";
+import { ChatType } from "../types/enum";
 
-export const chatTypeFilter = (bot: MyBot, type: ChatType) => {
-  return bot.filter((ctx) => ctx.chat?.type === type);
+export const chatTypeFilter = (bot: MyBot, chatType: ChatType) => {
+  return bot.filter((ctx) => ctx.chat?.type === chatType);
 };

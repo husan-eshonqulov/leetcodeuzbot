@@ -7,6 +7,7 @@ import privateChatCommands from "../command/private/index.js";
 import groupChatCommands from "../command/group/index.js";
 import { groupChatFilter, privateChatFilter } from "../middleware/filter.js";
 import { setCommandMenu } from "../helper/bot.js";
+import { ChatType } from "../types/enum.js";
 import echo from "../middleware/echo.js";
 
 const bot = new Bot<MyContext>(config.botToken);
@@ -17,8 +18,8 @@ const groupChat = groupChatFilter(bot);
 privateChat.use(privateChatComposer);
 groupChat.use(groupChatComposer);
 
-setCommandMenu(bot, privateChatCommands, "private");
-setCommandMenu(bot, groupChatCommands, "supergroup");
+setCommandMenu(bot, privateChatCommands, ChatType.private);
+setCommandMenu(bot, groupChatCommands, ChatType.group);
 
 bot.on("message", echo);
 
