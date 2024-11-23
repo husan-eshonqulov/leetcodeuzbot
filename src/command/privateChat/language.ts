@@ -1,11 +1,11 @@
-import MyCommand from "../../types/command";
+import MyCommandDetail from "../../types/command";
 import { MyCommandFn } from "../../types/command";
 
 const languageCommandFn: MyCommandFn = async (ctx) => {
-  return await ctx.conversation.enter("changeLangConversation");
+  return await ctx.conversation.enter("changeLangConv");
 };
 
-const languageCommand: MyCommand = {
+const languageCommand: MyCommandDetail = {
   command: "language",
   description: "tilni almashtirish",
   commandFn: languageCommandFn

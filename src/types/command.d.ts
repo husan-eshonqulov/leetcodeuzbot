@@ -3,10 +3,10 @@ import MyContext from "./context";
 
 export type MyCommandFn = CommandMiddleware<MyContext>;
 
-interface MyCommand {
+interface MyCommandDetail {
   command: string;
   description: string;
   commandFn: MyCommandFn;
 }
 
-export default MyCommand;
+export default MyCommandDetail;

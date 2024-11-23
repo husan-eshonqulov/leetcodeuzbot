@@ -3,11 +3,11 @@ import { conversations } from "@grammyjs/conversations";
 import MyContext from "../types/context";
 import { MySessionData } from "../types/session";
 import i18n from "../middleware/i18n.js";
-import groupChatConversations from "../conversation/group/index.js";
-import groupChatCommands from "../command/group/index.js";
+import groupChatConvs from "../conversation/groupChat/index.js";
+import { groupChatAdminCommands } from "../command/groupChat/index.js";
 import {
-  registerCommandsToComposer,
-  registerConverstionsToComposer
+  regCommandsToComposer,
+  regConvsToComposer
 } from "../helper/composer.js";
 
 const groupChatComposer = new Composer<MyContext>();
@@ -23,7 +23,7 @@ groupChatComposer.use(
 groupChatComposer.use(i18n);
 groupChatComposer.use(conversations());
 
-registerConverstionsToComposer(groupChatComposer, groupChatConversations);
-registerCommandsToComposer(groupChatComposer, groupChatCommands);
+regConvsToComposer(groupChatComposer, groupChatConvs);
+regCommandsToComposer(groupChatComposer, groupChatAdminCommands);
 
 export default groupChatComposer;

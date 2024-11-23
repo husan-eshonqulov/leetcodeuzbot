@@ -1,12 +1,12 @@
 import MyContext from "../../types/context";
 import {
   MyConversation,
-  ConversationBuilder,
-  ConversationDetails
+  ConvBuilderFn,
+  MyConvDetail
 } from "../../types/conversation";
-import { createLanguageKeyboard } from "../../helper/conversation.js";
+import { createLangKeyboard } from "../../helper/conversation.js";
 
-const changeLangConversationBuilder: ConversationBuilder = async (
+const changeLangConvBuilderFn: ConvBuilderFn = async (
   conversation: MyConversation,
   ctx: MyContext
 ) => {
@@ -16,7 +16,7 @@ const changeLangConversationBuilder: ConversationBuilder = async (
     ctx.t(`lang-${languageCode}.title-en`),
     ctx.t(`lang-${languageCode}.title-ru`)
   ];
-  const languageKeyboard = createLanguageKeyboard(languageTitles);
+  const languageKeyboard = createLangKeyboard(languageTitles);
 
   await ctx.reply(ctx.t("private-command.language"), {
     reply_markup: languageKeyboard
@@ -53,7 +53,7 @@ const changeLangConversationBuilder: ConversationBuilder = async (
   return;
 };
 
-export const changeLangConversation: ConversationDetails = {
-  title: "changeLangConversation",
-  builder: changeLangConversationBuilder
+export const changeLangConv: MyConvDetail = {
+  title: "changeLangConv",
+  builder: changeLangConvBuilderFn
 };

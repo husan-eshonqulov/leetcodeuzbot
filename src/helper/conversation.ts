@@ -1,11 +1,9 @@
 import { Keyboard } from "grammy";
 
-export const createLanguageKeyboard = (languageTitles: string[]) => {
+export const createLangKeyboard = (langTitles: string[]) => {
   const languageKeyboard = new Keyboard();
 
-  languageTitles.forEach((languageTitle) =>
-    languageKeyboard.text(languageTitle)
-  );
+  langTitles.forEach((langTitle) => languageKeyboard.text(langTitle));
 
   return languageKeyboard.resized();
 };

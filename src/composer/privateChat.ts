@@ -3,11 +3,11 @@ import { conversations } from "@grammyjs/conversations";
 import MyContext from "../types/context";
 import { MySessionData } from "../types/session";
 import i18n from "../middleware/i18n.js";
-import privateChatConversations from "../conversation/private/index.js";
-import privateChatCommands from "../command/private/index.js";
+import privateChatConvs from "../conversation/privateChat/index.js";
+import { privateChatCommands } from "../command/privateChat/index.js";
 import {
-  registerCommandsToComposer,
-  registerConverstionsToComposer
+  regCommandsToComposer,
+  regConvsToComposer
 } from "../helper/composer.js";
 
 const privateChatComposer = new Composer<MyContext>();
@@ -23,7 +23,7 @@ privateChatComposer.use(
 privateChatComposer.use(i18n);
 privateChatComposer.use(conversations());
 
-registerConverstionsToComposer(privateChatComposer, privateChatConversations);
-registerCommandsToComposer(privateChatComposer, privateChatCommands);
+regConvsToComposer(privateChatComposer, privateChatConvs);
+regCommandsToComposer(privateChatComposer, privateChatCommands);
 
 export default privateChatComposer;

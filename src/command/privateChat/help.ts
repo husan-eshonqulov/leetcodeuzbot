@@ -1,13 +1,13 @@
-import MyCommand from "../../types/command";
+import MyCommandDetail from "../../types/command";
 import { MyCommandFn } from "../../types/command";
 
 const helpCommandFn: MyCommandFn = async (ctx) => {
-  return await ctx.reply(ctx.t("group-command.help"));
+  return await ctx.reply(ctx.t("private-command.help"));
 };
 
-const helpCommand: MyCommand = {
+const helpCommand: MyCommandDetail = {
   command: "help",
-  description: "take help",
+  description: "yordam olish",
   commandFn: helpCommandFn
 };
 

@@ -2,9 +2,9 @@ import { Conversation, ConversationFn } from "@grammyjs/conversations";
 import MyContext from "./context";
 
 export type MyConversation = Conversation<MyContext>;
-export type ConversationBuilder = ConversationFn<MyContext>;
+export type ConvBuilderFn = ConversationFn<MyContext>;
 
-export interface ConversationDetails {
+export interface MyConvDetail {
   title: string;
-  builder: ConversationBuilder;
+  builder: ConvBuilderFn;
 }
