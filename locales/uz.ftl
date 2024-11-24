@@ -1,29 +1,31 @@
-lang-uz = O'zbek tiliga o'girish
-  .title-uz = 🇺🇿 o'zbek tili
-  .title-en = 🇺🇸 ingliz tili
-  .title-ru = 🇷🇺 rus tili
-  
-lang-en = Ingliz tiliga o'girish
-  .title-uz = 🇺🇿 uzbek
-  .title-en = 🇺🇸 english
-  .title-ru = 🇷🇺 russian
-  
-lang-ru = Rus tiliga o'girish
-  .title-uz = 🇺🇿 узбекский
-  .title-en = 🇺🇸 английский
-  .title-ru = 🇷🇺 русский
+# Til variantlari
+language = Tillar
+  .title-uz = 🇺🇿 O'zbek
+  .title-en = 🇺🇸 Ingliz
+  .title-ru = 🇷🇺 Rus
 
-change-lang-success = Til muffaqiyatli almashtirildi.
-change-lang-fail = Kutilmagan til tanlandi. Qayta urinib ko'ring.
+# Til o'zgarishi haqida xabarlar
+change-lang-success = Til muvaffaqiyatli o'zgartirildi.
+change-lang-fail = Tanlangan til qo'llab-quvvatlanmaydi. Iltimos, qaytadan urinib ko'ring.
 
-private-command = Shaxsiy Buyrug'i
-  .start = Botga xush kelibsiz! 
-    Yordam olish uchun /help buyruqini tering.
-  .help = Botga o'rnatilgan buyruqlar:
-    /start - Bot bilan aloqa o'rnatish.
-    /language - Tilni almashtirish.
-    /help - Yordam olish.
-  .language = Yoqtirgan tilingizni tanlang.
-  
-group-command = Guruh Buyrug'i
-  .help = yordam buyrug'i
+# Shaxsiy chat buyruqlari
+private-chat-command = Shaxsiy Chat Buyruqlari
+  .start = Botga xush kelibsiz! Yordam olish uchun /help buyrug'idan foydalaning.
+  .help = Siz foydalanishingiz mumkin bo'lgan ba'zi buyruqlar:
+      /start - Bot bilan muloqotni boshlash.
+      /language - Bot tilini o'zgartirish.
+      /help - Buyruqlarni ko'rish.
+  .language = Iltimos, kerakli tilni tanlang:
+
+# Guruh chat buyruqlari
+group-chat-command = Guruh Chat Buyruqlari
+  .help = Ushbu guruhda mavjud buyruqlar:
+      /language - Bot tilini o'zgartirish.
+      /help - Buyruqlarni ko'rish.
+
+# Guruh chat admin buyruqlari
+group-chat-admin-command = Guruh Chat Admin Buyruqlari
+  .help = Ushbu guruhda mavjud admin buyruqlar:
+      /language - Bot tilini o'zgartirish.
+      /help - Buyruqlarni ko'rish.
+  .language = Iltimos, kerakli tilni tanlang:

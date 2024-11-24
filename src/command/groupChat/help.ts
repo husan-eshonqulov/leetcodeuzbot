@@ -2,7 +2,7 @@ import MyCommandDetail from "../../types/command";
 import { MyCommandFn } from "../../types/command";
 
 const helpCommandFn: MyCommandFn = async (ctx) => {
-  return await ctx.reply(ctx.t("group-command.help"));
+  return await ctx.reply(ctx.t("group-chat-command.help"));
 };
 
 const helpCommand: MyCommandDetail = {

@@ -10,15 +10,14 @@ const changeLangConvBuilderFn: ConvBuilderFn = async (
   conversation: MyConversation,
   ctx: MyContext
 ) => {
-  const languageCode = ctx.session.__language_code;
   const languageTitles = [
-    ctx.t(`lang-${languageCode}.title-uz`),
-    ctx.t(`lang-${languageCode}.title-en`),
-    ctx.t(`lang-${languageCode}.title-ru`)
+    ctx.t(`language.title-uz`),
+    ctx.t(`language.title-en`),
+    ctx.t(`language.title-ru`)
   ];
   const languageKeyboard = createLangKeyboard(languageTitles);
 
-  await ctx.reply(ctx.t("private-command.language"), {
+  await ctx.reply(ctx.t("private-chat-command.language"), {
     reply_markup: languageKeyboard
   });
 

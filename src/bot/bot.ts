@@ -23,7 +23,7 @@ groupChat.use(groupChatComposer);
 
 setCommandMenu(bot, privateChatCommands, CommandType.privateChat);
 setCommandMenu(bot, groupChatCommands, CommandType.groupChat);
-setCommandMenu(bot, groupChatAdminCommands, CommandType.groupChat);
+setCommandMenu(bot, groupChatAdminCommands, CommandType.groupChatAdmin);
 
 bot.on("message", echo);
 

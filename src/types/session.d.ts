@@ -1,12 +1,12 @@
 import { ChatType } from "./chat";
 
 export type PrivateSessionData = {
-  __language_code: string;
-  profile: string | null;
+  __language_code?: string;
+  profile?: string;
 };
 
 export type GroupSessionData = {
-  __language_code: string;
+  __language_code?: string;
 };
 
 export type MySessionData<T extends ChatType> = T extends "private"

@@ -14,9 +14,7 @@ const groupChatComposer = new Composer<MyContext>();
 
 groupChatComposer.use(
   lazySession({
-    initial: (): MySessionData<"supergroup"> => {
-      return { __language_code: "en" };
-    }
+    initial: (): MySessionData<"supergroup"> => ({})
   })
 );
 

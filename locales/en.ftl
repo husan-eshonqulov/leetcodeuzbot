@@ -1,29 +1,31 @@
-lang-uz = Languages to Uzbek
-  .title-uz = 🇺🇿 o'zbek tili
-  .title-en = 🇺🇸 ingliz tili
-  .title-ru = 🇷🇺 rus tili
-  
-lang-en = Languages to English
-  .title-uz = 🇺🇿 uzbek
-  .title-en = 🇺🇸 english
-  .title-ru = 🇷🇺 russian
-  
-lang-ru = Languages to Russian
-  .title-uz = 🇺🇿 узбекский
-  .title-en = 🇺🇸 английский
-  .title-ru = 🇷🇺 русский
+# General language options
+language = Languages
+  .title-uz = 🇺🇿 Uzbek
+  .title-en = 🇺🇸 English
+  .title-ru = 🇷🇺 Russian
 
-change-lang-success = Language successfully changed.
-change-lang-fail = Unexpected language. Try again.
+# Feedback messages for language changes
+change-lang-success = The language has been successfully changed.
+change-lang-fail = The selected language is not supported. Please try again.
 
-private-command = Private Command
-  .start = Welcome to the bot! Type /help to get assistance.
-  .help = Here are some commands you can use:
-    /start - Start interacting with the bot.
-    /language - Change the language of the bot.
-    /help - Get assistance with bot commands.
-  .language = Select your preferred language.
-  
+# Private chat command translations
+private-chat-command = Private Chat Commands
+  .start = Welcome to the bot! Use the /help command for assistance.
+  .help = Here are some commands available to you:
+      /start - Start interacting with the bot.
+      /language - Change the bot's language.
+      /help - View available commands.
+  .language = Please select your preferred language:
 
-group-command = Group Command
-  .help = this is help command
+# Group chat command translations
+group-chat-command = Group Chat Commands
+  .help = Available commands in this group:
+      /language - Change the bot's language.
+      /help - View available commands.
+
+# Admin-specific commands in group chat
+group-chat-admin-command = Group Chat Admin Commands
+  .help = Admin-specific commands available in this group:
+      /language - Change the bot's language.
+      /help - View available commands.
+  .language = Please select your preferred language:

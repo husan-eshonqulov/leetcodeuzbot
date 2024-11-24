@@ -14,9 +14,7 @@ const privateChatComposer = new Composer<MyContext>();
 
 privateChatComposer.use(
   lazySession({
-    initial: (): MySessionData<"private"> => {
-      return { __language_code: "en", profile: null };
-    }
+    initial: (): MySessionData<"private"> => ({})
   })
 );
 
