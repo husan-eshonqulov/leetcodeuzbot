@@ -5,8 +5,8 @@ language = Languages
   .title-ru = 🇷🇺 Russian
 
 # Feedback messages for language changes
-change-lang-success = The language has been successfully changed.
-change-lang-fail = The selected language is not supported. Please try again.
+change-lang-success = The language has been successfully changed to { $langTitle }.
+change-lang-fail = The { $langTitle } selected language is not supported. Please try again.
 
 # Private chat command translations
 private-chat-command = Private Chat Commands

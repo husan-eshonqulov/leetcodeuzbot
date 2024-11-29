@@ -3,11 +3,11 @@ import MyContext from "../types/context";
 import config from "../config/config.js";
 import privateChatComposer from "../composer/privateChat.js";
 import groupChatComposer from "../composer/groupChat.js";
-import { privateChatCommands } from "../command/privateChat/index.js";
+import { privateChatCommands } from "../handler/command/privateChat/index.js";
 import {
   groupChatCommands,
   groupChatAdminCommands
-} from "../command/groupChat/index.js";
+} from "../handler/command/groupChat/index.js";
 import { groupChatFilter, privateChatFilter } from "../middleware/filter.js";
 import { setCommandMenu } from "../helper/bot.js";
 import { CommandType } from "../types/enum.js";

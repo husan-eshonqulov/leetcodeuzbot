@@ -5,8 +5,8 @@ language = Tillar
   .title-ru = 🇷🇺 Rus
 
 # Til o'zgarishi haqida xabarlar
-change-lang-success = Til muvaffaqiyatli o'zgartirildi.
-change-lang-fail = Tanlangan til qo'llab-quvvatlanmaydi. Iltimos, qaytadan urinib ko'ring.
+change-lang-success = Til muvaffaqiyatli { $langTitle } ga o'zgartirildi.
+change-lang-fail = Tanlangan { $langTitle } tili qo'llab-quvvatlanmaydi. Iltimos, qayta urinib ko'ring.
 
 # Shaxsiy chat buyruqlari
 private-chat-command = Shaxsiy Chat Buyruqlari

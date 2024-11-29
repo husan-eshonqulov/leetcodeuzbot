@@ -1,9 +1,22 @@
-import { Keyboard } from "grammy";
+import { InlineKeyboard } from "grammy";
+import { LanguageCode } from "grammy/types";
+import MyContext from "../types/context";
 
-export const createLangKeyboard = (langTitles: string[]) => {
-  const languageKeyboard = new Keyboard();
+export const getLangTitles = (langCodes: LanguageCode[], ctx: MyContext) => {
+  return langCodes.map((langCode) => ctx.t(`language.title-${langCode}`));
+};
 
-  langTitles.forEach((langTitle) => languageKeyboard.text(langTitle));
+export const createLangKeyboard = (
+  langCodes: LanguageCode[],
+  ctx: MyContext
+) => {
+  const langKeyboard = new InlineKeyboard();
 
-  return languageKeyboard.resized();
+  langCodes.forEach((langCode, i) => {
+    const payload = `language.title-${langCode}`;
+    if (i % 3 === 0) langKeyboard.row();
+    langKeyboard.text(ctx.t(payload), payload);
+  });
+
+  return langKeyboard;
 };
